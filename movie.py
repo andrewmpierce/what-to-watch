@@ -7,3 +7,14 @@ class Movie:
         """This method will find a movie title from a dictionary of
         movie id's and titles"""
         return id_title_dict[item_id]
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()
