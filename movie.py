@@ -3,10 +3,10 @@ class Movie:
         self.item_id = item_id
 
 
-    def title(self, item_id, id_title_dict):
+    def title(self, all_movies):
         """This method will find a movie title from a dictionary of
         movie id's and titles"""
-        return id_title_dict[item_id]
+        return all_movies[item_id]
 
 
 
