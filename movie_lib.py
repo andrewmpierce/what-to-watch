@@ -58,7 +58,6 @@ class Movie:
 
 
     def avg_rating(self):
-        ratings = self.ratings
         avg = round(sum(self.ratings)/len(self.ratings), 2)
         return avg
 
@@ -66,5 +65,5 @@ class Movie:
     def add_rating(self, rating):
         self.ratings[rating.user] = rating
 
-movie1 = Movie(1)
-print(movie1.avg_rating())
+movie1 = Movie
+print

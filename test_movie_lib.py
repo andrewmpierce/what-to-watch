@@ -1,12 +1,12 @@
 from movie_lib import *
 
-siskel = User(5)
-ebert = User(12)
-movie1 = Movie(3, "Toy Story")
-movie2 = Movie(9, "Pretty Woman")
-rating1 = Rating(5, 3, 5)
-rating2 = Rating(12, 9, 5)
-rating3 = Rating(5, 9, 3)
+# siskel = User(5)
+# ebert = User(12)
+# movie1 = Movie(3, "Toy Story")
+# movie2 = Movie(9, "Pretty Woman")
+# rating1 = Rating(5, 3, 5)
+# rating2 = Rating(12, 9, 5)
+# rating3 = Rating(5, 9, 3)
 
 
 
