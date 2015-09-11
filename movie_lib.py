@@ -7,11 +7,17 @@ with open("ml-100k 2/u.item", encoding = 'latin_1') as f:
     for row in reader1:
         key = int(row[0])
         all_movies[key] = row[1]
-    print(all_movies)
 
+with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
+    all_ratings = {}
+    reader1 = csv.reader(f, delimiter='\t')
+    for row in reader1:
+        key = row[1]
+        if key not in all_ratings:
+            all_ratings[key] = list(row[2])
+        else:
+            all_ratings[key].append(row[2])
 
-
-all_users = {}
 
 
 class User:
@@ -34,20 +40,29 @@ class Rating:
 
 
 class Movie:
-    def __init__(self, movie_id, title):
+    def __init__(self, movie_id, title = None, ratings = None):
         self.id = movie_id
-        self.title = title
+        self.title = all_movies[self.id]
+        # self.ratings = all_ratings[self.id]
         all_movies[self.id] = self
-        self.ratings = {}
+        all_ratings[self.id] = self
 
     def __str__(self):
-        return 'Movie: movie_id = {}, title = {}'.format(self.movie_id, repr(self.title))
+        return 'Movie: movie_id = {}, title = {}'.format(self.id, repr(self.title))
 
     def __repr__(self):
         return self.__str__()
 
-    def get_ratings(self):
-        return self.ratings.values()
+    def title(self):
+        """This method will find a movie title from a dictionary of
+        movie id's and titles"""
+        return all_movies[self.id]
+
+    def ratings(self):
+        return all_ratings[self.id]
 
     def add_rating(self, rating):
         self.ratings[rating.user] = rating
+
+movie1 = Movie(1)
+print(movie1.title)

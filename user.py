@@ -2,7 +2,7 @@ class User:
     def __init__(self, user_id):
         self.user_id = user_id
 
-    def user_ratings(self, user_id, all_ratings):
+    def ratings(self, user_id, all_ratings):
         """This method will return a list of all the ratings from
         a user given their user_id"""
         value = all_ratings[user_id]
