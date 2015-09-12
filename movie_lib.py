@@ -19,6 +19,17 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
             all_ratings[key].append(row[2])
     all_ratings = {k:[int(x) for x in values] for k,values in all_ratings.items()}
 
+with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
+    all_users = {}
+    reader1 = csv.reader(f, delimiter='\t')
+    for row in reader1:
+        key = int(row[0])
+        if key not in all_users:
+            all_users[key] = list((int(row[1]),int(row[2])))
+        else:
+            all_users[key].append((int(row[1]),int(row[2])))
+print(all_users)
+
 
 
 class User:
@@ -64,6 +75,3 @@ class Movie:
 
     def add_rating(self, rating):
         self.ratings[rating.user] = rating
-
-movie1 = Movie
-print
