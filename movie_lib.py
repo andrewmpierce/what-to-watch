@@ -25,17 +25,26 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
     for row in reader1:
         key = int(row[0])
         if key not in all_users:
-            all_users[key] = list((int(row[1]),int(row[2])))
+            all_users[key] = list((row[1],row[2]))
         else:
-            all_users[key].append((int(row[1]),int(row[2])))
-print(all_users)
+            all_users[key].append((row[1],row[2]))
 
 
 
 class User:
     def __init__(self, user_id):
         self.id = user_id
+        self.movies = all_users[self.id]
         all_users[self.id] = self
+
+
+    def all_seen(self):
+        movies_seen = []
+        for x in self.movies:
+            movies_seen.append(x[0])
+        movies_seen = [int(x) for x in movies_seen]
+        return movies_seen
+
 
 class Rating:
     def __init__(self, user_id, movie_id, stars):
