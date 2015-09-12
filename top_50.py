@@ -33,5 +33,7 @@ def top_50_for_user(user_id):
 
 def main():
     print("Okay let's see the top 50 movies! At least according to Movie Lens...")
-    top_50_for_user(1)
+    user = input("What is your user id? Remember we have a total of 943 users.\n")
+    user = int(user)
+    top_50_for_user(user)
 main()
