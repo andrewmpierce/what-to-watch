@@ -1,4 +1,5 @@
 from movie_lib import *
+from user_relations import *
 
 
 def top_50():
@@ -16,8 +17,7 @@ def top_50():
 
 def top_50_for_user(user_id):
     pop_unseen = {}
-    some_user = User(user_id)
-    user_seen = some_user.all_reviewed()
+    user_seen = all_reviewed(user_id)
     for key, value in all_ratings.items():
         if key not in user_seen:
             if len(value) >= 20:
