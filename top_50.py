@@ -17,7 +17,7 @@ def top_50():
 def top_50_for_user(user_id):
     pop_unseen = {}
     some_user = User(user_id)
-    user_seen = some_user.all_seen()
+    user_seen = some_user.all_reviewed()
     for key, value in all_ratings.items():
         if key not in user_seen:
             if len(value) >= 20:

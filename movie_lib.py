@@ -19,15 +19,17 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
             all_ratings[key].append(row[2])
     all_ratings = {k:[int(x) for x in values] for k,values in all_ratings.items()}
 
+
 with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
     all_users = {}
     reader1 = csv.reader(f, delimiter='\t')
     for row in reader1:
         key = int(row[0])
         if key not in all_users:
-            all_users[key] = list((row[1],row[2]))
+            all_users[key] = {row[1]: row[2]}
         else:
-            all_users[key].append((row[1],row[2]))
+            all_users[key].update({row[1]: row[2]})
+
 
 
 
@@ -38,13 +40,12 @@ class User:
         all_users[self.id] = self
 
 
-    def all_seen(self):
+    def all_reviewed(self):
         movies_seen = []
         for x in self.movies:
             movies_seen.append(x[0])
         movies_seen = [int(x) for x in movies_seen]
         return movies_seen
-
 
 class Rating:
     def __init__(self, user_id, movie_id, stars):
@@ -80,7 +81,3 @@ class Movie:
     def avg_rating(self):
         avg = round(sum(self.ratings)/len(self.ratings), 2)
         return avg
-
-
-    def add_rating(self, rating):
-        self.ratings[rating.user] = rating
