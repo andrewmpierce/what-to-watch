@@ -47,9 +47,11 @@ def find_sim_users(user):
     for x in range(943):
         if counter != user:
             sim = euclidian_distance(user, counter)
-            if sim >= .5:
-                similar_users.append((counter, sim))
+            if sim == 1.0 or sim == .50:
+                continue
+            if sim >= .15:
+                similar_users.append(counter)
         counter += 1
     return similar_users
 
-print(find_sim_users(1))
+print(find_sim_users(574))
