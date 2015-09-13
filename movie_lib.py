@@ -8,6 +8,7 @@ with open("ml-100k 2/u.item", encoding = 'latin_1') as f:
         key = int(row[0])
         all_movies[key] = row[1]
 
+
 with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
     all_ratings = {}
     reader1 = csv.reader(f, delimiter='\t')
@@ -31,8 +32,6 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
             all_users[key].update({row[1]: row[2]})
 
 
-
-
 class User:
     def __init__(self, user_id):
         self.id = user_id
@@ -47,6 +46,7 @@ class User:
         movies_seen = [int(x) for x in movies_seen]
         return movies_seen
 
+
 class Rating:
     def __init__(self, user_id, movie_id, stars):
         self.user = user_id
@@ -54,8 +54,10 @@ class Rating:
         self.stars = stars
         all_movies[self.movie].add_rating(self)
 
+
     def __str__(self):
         return 'Rating(user_id {}), movie_id {}, stars {}'.format(self.user, self.movie, self.stars)
+
 
     def __repr__(self):
         return self.__str__()
