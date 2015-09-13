@@ -48,11 +48,20 @@ def rec_for_user(user_id):
         print(str(counter) + ': ' +str(all_movies[x]))
         counter += 1
 
-rec_for_user(1)
-
 def main():
-    print("Okay let's see the top 50 movies! At least according to Movie Lens...")
-    user = input("What is your user id? Remember we have a total of 943 users.\n")
-    user = int(user)
-    top_50_for_user(user)
+    print("Okay let's see the best movies! At least according to Movie Lens...")
+    response = input("What do you want to see? [1] for general top 50, [2] for"
+    +" the top 50 a certain user hasn't seen, [3] for the recommended movies"
+    +" for a particular user.\n")
+    if response == '1':
+        top_50()
+    elif response == '2':
+        user = input("What is your user id? Remember we have a total of 943 users.\n")
+        user = int(user)
+        top_50_for_user(user)
+    else:
+        user = input("What is your user id? Remember we have a total of 943 users.\n")
+        user = int(user)
+        rec_for_user(user)
+
 main()
