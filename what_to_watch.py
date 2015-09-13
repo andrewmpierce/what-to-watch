@@ -52,16 +52,21 @@ def main():
     print("Okay let's see the best movies! At least according to Movie Lens...")
     response = input("What do you want to see? [1] for general top 50, [2] for"
     +" the top 50 a certain user hasn't seen, [3] for the recommended movies"
-    +" for a particular user.\n")
+    +" for a particular user.\n \nAlso bear in mind that the more movies you have"
+    +" reviewed, the better suggestions we can make.\n")
+
     if response == '1':
         top_50()
     elif response == '2':
         user = input("What is your user id? Remember we have a total of 943 users.\n")
         user = int(user)
         top_50_for_user(user)
-    else:
+    elif response == '3':
         user = input("What is your user id? Remember we have a total of 943 users.\n")
         user = int(user)
         rec_for_user(user)
+    else:
+        print("That's not a valid response. Enter 1, 2, or 3.")
 
-main()
+if __name__ == '__main__':
+    main()

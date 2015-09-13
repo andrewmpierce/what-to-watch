@@ -35,9 +35,10 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
 class User:
     def __init__(self, user_id):
         self.id = user_id
-        #self.movies = all_users[self.id]
         all_users[self.id] = self
 
+    def all_ratings(self):
+        return all_users[self.id]
 
 
 class Rating:
@@ -45,7 +46,6 @@ class Rating:
         self.user = user_id
         self.movie = movie_id
         self.stars = stars
-        all_movies[self.movie].add_rating(self)
 
 
     def __str__(self):

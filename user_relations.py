@@ -5,8 +5,7 @@ import math
 def all_reviewed(user_id):
     movies_seen = []
     safe_copy = all_users[user_id]
-    for x in safe_copy:
-        movies_seen.append(x)
+    [movies_seen.append(x) for x in safe_copy]
     sorted_movies_seen = sorted(movies_seen)
     return sorted_movies_seen
 
@@ -17,18 +16,14 @@ def compare_users(user1_id, user2_id):
     safe_copy1 = user1_movies[:]
     user2_movies = all_reviewed(user2_id)
     shared = []
-    for x in safe_copy1:
-        if x in user2_movies:
-            shared.append(x)
+    [shared.append(x) for x in safe_copy1 if x in user2_movies]
     return shared
 
 
 def selected_ratings(movie_list, user):
     select_ratings = []
     safe_copy = movie_list
-    for x in all_users[user].items():
-        if x[0] in movie_list:
-            select_ratings.append(x[1])
+    [select_ratings.append(x[1]) for x in all_users[user].items() if x[0] in movie_list]
     return select_ratings
 
 def euclidian_distance(user1, user2):
@@ -49,7 +44,7 @@ def find_sim_users(user):
             sim = euclidian_distance(user, counter)
             if sim == 1.0 or sim == .50:
                 continue
-            if sim >= .15:
+            if sim >= .25:
                 similar_users.append(counter)
         counter += 1
     return similar_users
