@@ -53,5 +53,3 @@ def find_sim_users(user):
                 similar_users.append(counter)
         counter += 1
     return similar_users
-
-print(find_sim_users(574))

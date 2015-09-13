@@ -15,6 +15,7 @@ def top_50():
         print(str(counter+1) + ': ' +str(all_movies[top_50[counter][0]]) + ' ' + str(top_50[counter][1]))
         counter += 1
 
+
 def top_50_for_user(user_id):
     pop_unseen = {}
     user_seen = all_reviewed(user_id)
@@ -30,6 +31,24 @@ def top_50_for_user(user_id):
         print(str(counter+1) + ': ' +str(all_movies[top_50[counter][0]]) + ' ' + str(top_50[counter][1]))
         counter += 1
 
+
+def rec_for_user(user_id):
+    sim_users = find_sim_users(user_id)
+    seen_movies = all_reviewed(user_id)
+    rec_movies = []
+    for x in sim_users:
+        sim_movies = all_reviewed(x)
+        for movie in sim_movies:
+            if movie not in seen_movies:
+                if all_users[x][movie] >= 5:
+                    rec_movies.append(movie)
+    counter = 1
+    rec_movies = list(set(rec_movies))
+    for x in rec_movies:
+        print(str(counter) + ': ' +str(all_movies[x]))
+        counter += 1
+
+rec_for_user(1)
 
 def main():
     print("Okay let's see the top 50 movies! At least according to Movie Lens...")

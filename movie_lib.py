@@ -40,9 +40,6 @@ class User:
 
 
 
-
-
-
 class Rating:
     def __init__(self, user_id, movie_id, stars):
         self.user = user_id
