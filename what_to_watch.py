@@ -49,7 +49,9 @@ def rec_for_user(user_id):
         counter += 1
     if len(rec_movies) == 0:
         print("It looks like you have very interesting tastes in movies!"
-        +"We don't have ANY similar users to you! You are an original.")
+        +" We don't have ANY similar users to you! You are an original.")
+        print("Here are the top 50 movies you haven't seen, by average rating.")
+        top_50_for_user(user_id)
 
 def main():
     print("Okay let's see the best movies! At least according to Movie Lens...")
