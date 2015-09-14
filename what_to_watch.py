@@ -47,6 +47,9 @@ def rec_for_user(user_id):
     for x in rec_movies:
         print(str(counter) + ': ' +str(all_movies[x]))
         counter += 1
+    if len(rec_movies) == 0:
+        print("It looks like you have very interesting tastes in movies!"
+        +"We don't have ANY similar users to you! You are an original.")
 
 def main():
     print("Okay let's see the best movies! At least according to Movie Lens...")
