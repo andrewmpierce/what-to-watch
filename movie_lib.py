@@ -1,7 +1,7 @@
 import csv
 
 
-with open("ml-100k 2/u.item", encoding = 'latin_1') as f:
+with open("ml-100k/u.item", encoding = 'latin_1') as f:
     all_movies = {}
     reader1 = csv.reader(f, delimiter='|')
     for row in reader1:
@@ -9,7 +9,7 @@ with open("ml-100k 2/u.item", encoding = 'latin_1') as f:
         all_movies[key] = row[1]
 
 
-with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
+with open("ml-100k/u.data", encoding = 'latin_1') as f:
     all_ratings = {}
     reader1 = csv.reader(f, delimiter='\t')
     for row in reader1:
@@ -21,7 +21,7 @@ with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
     all_ratings = {k:[int(x) for x in values] for k,values in all_ratings.items()}
 
 
-with open("ml-100k 2/u.data", encoding = 'latin_1') as f:
+with open("ml-100k/u.data", encoding = 'latin_1') as f:
     all_users = {}
     reader1 = csv.reader(f, delimiter='\t')
     for row in reader1:

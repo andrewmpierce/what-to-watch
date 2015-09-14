@@ -4,7 +4,9 @@ it by popularity and then make recommendations to users based on their data.
 
 ##To Run:
 
-To run the program you will need Python 3. Simply run the file what_to_watch.py in your terminal. Ex. python what_to_watch.py
+To run the program you will need Python 3. The data is referred to as "ml-100k/u.item" and "ml-100k/u.data" in the program's internals. This is what it is pulling the data from. Add the ml-100k directory to the root of this directory.
+
+Then simply run the file what_to_watch.py in your terminal. Ex. python what_to_watch.py.
 
 ##How it works
 
